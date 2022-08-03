@@ -8,6 +8,7 @@
 
 body {
     background-color: red;
+    
 }
 
 .header-container {
@@ -18,18 +19,14 @@ body {
     font-size: larger;
 }
 
-.etch-container {
-    display: flex;
-    justify-content: center;
-}
-
-
 .grid-container {
     display: inline-grid;
-    grid-template-columns: repeat(16, 35px);
-    grid-template-rows: repeat(16, 35px);
+    /*grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto); */
     border:black 1px solid;
     background-color: beige;
+    width: 500px;
+    height: 500px;
 }
 
 .grid {

@@ -1,22 +1,33 @@
-const container = document.querySelector('.grid-container');
-let size;
+const gridContainer = document.querySelector('.grid-container');
 
-const gridSize = document.getElementById('grid-size');
-  gridSize.addEventListener('click', (e) => {
-      size = prompt('Pick your grid size');
+function createGrid(size) {
+
+for(i = 0; i < size * size; i++) {
+  const grid = document.createElement('div');
+    grid.classList.add('grid');
+      gridContainer.appendChild(grid);
+        gridContainer.style.cssText = 
+        `grid-template-columns: repeat(${size}, auto);
+         grid-template-rows: repeat(${size}, auto);`
+           grid.addEventListener('mouseover', (e) => {
+             e.target.style.backgroundColor = 'black';
+})
+}
+}
+
+createGrid(16);
+
+const sizeSelector = document.getElementById("size-selector");
+  sizeSelector.addEventListener('click', (e) => {
+    const size = prompt('Select your grid size between 1 - 100');
+       gridContainer.innerHTML = "";
+         createGrid(size);
   })
 
 
-
-for(i = 0; i < 256; i++) {
-  const grid = document.createElement('div');
-    grid.classList.add('grid');
-      container.appendChild(grid);
-        //grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-         // grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
-            grid.addEventListener('mouseover', (e) => {
-              e.target.style.backgroundColor = 'black';
-
-        })
-}
-
+const clearGrid = document.getElementById("clear-grid");
+  clearGrid.addEventListener('click', (e) => {
+    gridContainer.innerHTML = "";
+      createGrid(16);
+    
+  })
