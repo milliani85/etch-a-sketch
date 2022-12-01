@@ -67,7 +67,11 @@ sizeSelector.addEventListener('click', (e) => {
 //Clears grid back to 16 x 16
 clearGrid.addEventListener('click', (e) => {
   gridContainer.innerHTML = "";
-     createGrid(size);
+     if(size === undefined) {
+       createGrid(16);
+     } else {
+       createGrid(size);
+     }
 })
 
 
